@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Typography, Grid } from '@mui/material';
-import ListItem from './ListItem';
+import ListItems from './ListItems';
 import Pagination from './Pagination';
 import SearchBar from './SearchBar';
 import { RootState } from '../store';
@@ -49,12 +49,10 @@ const PostSection: React.FC = () => {
       <Grid container spacing={2}>
         {posts.map((post: Post) => (
           <Grid item xs={12} key={post.id}>
-            <ListItem
+            <ListItems
               id={post.id}
               title={post.title}
-              type="post"
               isSaved={savedPosts.includes(post.id)}
-              imageUrl={post.imageUrl}
             />
           </Grid>
         ))}

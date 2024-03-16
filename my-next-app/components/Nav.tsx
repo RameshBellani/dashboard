@@ -14,7 +14,6 @@ const Nav = () => {
     <AppBar position="static">
       <Box display="flex" justifyContent="space-between" alignItems="center" p={2}>
         <Box display="flex" alignItems="center">
-          <Image src="/instagram-logo.png" alt="Instagram Logo" width={40} height={40} />
           <Typography variant="h6" component="div" sx={{ ml: 1 }}>
             Simple Dashboard
           </Typography>

@@ -1,7 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { savePost, unsavePost, savePhoto, unsavePhoto } from '../store/slice';
-import { Button, Card, CardContent, Typography } from '@mui/material';
 import Image from 'next/image';
 
 interface ListItemProps {
@@ -32,21 +31,21 @@ const ListItem: React.FC<ListItemProps> = ({ id, title, type, isSaved, imageUrl 
   };
 
   return (
-    <Card variant="outlined" className="mb-4">
-      <Image src={imageUrl} alt={title} width={400} height={300} />
-      <CardContent>
-        <Typography variant="h5" component="h2" className="mb-2">
-          {title}
-        </Typography>
-        <Button
-          variant="contained"
-          color={isSaved ? 'secondary' : 'primary'}
-          onClick={handleSaveToggle}
-        >
-          {isSaved ? 'Unsave' : 'Save'}
-        </Button>
-      </CardContent>
-    </Card>
+    <div className="border border-gray-300 p-4 rounded-md shadow-md flex flex-col">
+      <Image src={imageUrl} alt={title} width={400} height={300} className="mb-2 rounded-md" />
+      <h3 className="text-lg font-semibold mb-2">{title}</h3>
+      <button
+  className={`px-4 py-2 rounded-md btn btn-primary ${
+    isSaved
+      ? 'bg-gray-400 text-gray-800 hover:bg-gray-500'
+      : 'bg-blue-500 text-white hover:bg-blue-600'
+  }`} 
+  onClick={handleSaveToggle}
+>
+  {isSaved ? 'Unsave' : 'Save'}
+</button>
+
+    </div>
   );
 };
 
